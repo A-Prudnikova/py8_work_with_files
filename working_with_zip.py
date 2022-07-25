@@ -8,11 +8,6 @@ from downloading_files import get_csv, get_pdf, get_xls
 
 
 @pytest.fixture()
-def removing_zip():
-    yield
-    os.remove('resources/sample.zip')
-
-@pytest.fixture()
 def removing_files():
     yield
     os.remove('resources/file.pdf')
@@ -35,7 +30,7 @@ def convert_to_zip():
     return zip
 
 
-def test_zip_file(download, removing_zip, removing_files):
+def test_zip_file(download, removing_files):
 
     zip_ = convert_to_zip()
 
